@@ -41,7 +41,7 @@ std::list <std::string> Desktop::getFileNames(std::string path)
         FindClose(hFind);
     }
 
-    // Удаляем из списка папки \., \.., \desktop.ini
+    // РЈРґР°Р»СЏРµРј РёР· СЃРїРёСЃРєР° РїР°РїРєРё \., \.., \desktop.ini
     fileNames.erase(
         std::remove(fileNames.begin(), fileNames.end(), "."), fileNames.end());
     fileNames.erase(

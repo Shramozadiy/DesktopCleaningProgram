@@ -4,7 +4,7 @@
 
 long long getLostTime(SYSTEMTIME t1, SYSTEMTIME t2)
 {
-    long long lostTime = 0; // В минутах
+    long long lostTime = 0; // Р’ РјРёРЅСѓС‚Р°С…
 
     lostTime += t1.wMinute - t2.wMinute;
     lostTime += (t1.wHour - t2.wHour) * 60;
@@ -37,20 +37,20 @@ bool getLastOpenTimeFile(std::string path, long long time)
 
 void moveFilesToRepository()
 {
-    // Создание папки если ее не существует
+    // РЎРѕР·РґР°РЅРёРµ РїР°РїРєРё РµСЃР»Рё РµРµ РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚
     std::string userDesktopPath = Desktop::getInstance().getUserDesktopPath();
     std::string repository = Data::getInstance().getRepository();
     std::list <std::string> exceptions = Data::getInstance().getExceptions();
     std::string command = "mkdir \"" + userDesktopPath + repository + "\"";
     system(command.c_str());
 
-    // Получить пути файлов
+    // РџРѕР»СѓС‡РёС‚СЊ РїСѓС‚Рё С„Р°Р№Р»РѕРІ
     std::list <std::string> filePaths = Desktop::getInstance().getFilePaths();
 
-    // Получить названия файлов
+    // РџРѕР»СѓС‡РёС‚СЊ РЅР°Р·РІР°РЅРёСЏ С„Р°Р№Р»РѕРІ
     std::list <std::string> fileNames = Desktop::getInstance().getFileNames();
 
-    // Получить список путей исключений
+    // РџРѕР»СѓС‡РёС‚СЊ СЃРїРёСЃРѕРє РїСѓС‚РµР№ РёСЃРєР»СЋС‡РµРЅРёР№
     std::list <std::string> exceptionsPath = Desktop::getInstance().getFilePaths(userDesktopPath, exceptions);
 
     for (auto& i : fileNames)

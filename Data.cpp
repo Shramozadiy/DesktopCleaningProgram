@@ -14,22 +14,21 @@ void Data::loadData(std::string fileName)
     {
         std::string buffer;
         size_t count;
-
-        // Получаем размер списка исключений
+        // РџРѕР»СѓС‡Р°РµРј СЂР°Р·РјРµСЂ СЃРїРёСЃРєР° РёСЃРєР»СЋС‡РµРЅРёР№
         in >> count;
 
-        // Загружаем список исключений
+        // Р—Р°РіСЂСѓР¶Р°РµРј СЃРїРёСЃРѕРє РёСЃРєР»СЋС‡РµРЅРёР№
         for (int i = 0; i < count; i++)
         {
             getline(in, buffer);
             exceptions.push_back(buffer);
         }
 
-        // Загружаем хранилище
+        // Р—Р°РіСЂСѓР¶Р°РµРј С…СЂР°РЅРёР»РёС‰Рµ
         getline(in, buffer);
         repository = buffer;
     }
-    in.close();     // закрываем файл
+    in.close();     // Р·Р°РєСЂС‹РІР°РµРј С„Р°Р№Р»
 }
 
 void Data::saveData(std::string fileName)
@@ -37,16 +36,16 @@ void Data::saveData(std::string fileName)
     std::ofstream out(fileName);
     if (out.is_open())
     {
-        // Записываем размер списка исключений
+        // Р—Р°РїРёСЃС‹РІР°РµРј СЂР°Р·РјРµСЂ СЃРїРёСЃРєР° РёСЃРєР»СЋС‡РµРЅРёР№
         out << exceptions.size();
 
-        // Записываем список исключений
+        // Р—Р°РїРёСЃС‹РІР°РµРј СЃРїРёСЃРѕРє РёСЃРєР»СЋС‡РµРЅРёР№
         for (auto i : exceptions)
         {
             out << i << std::endl;
         }
 
-        // Записываем хранилище
+        // Р—Р°РїРёСЃС‹РІР°РµРј С…СЂР°РЅРёР»РёС‰Рµ
         out << repository << std::endl;
     }
     out.close();
